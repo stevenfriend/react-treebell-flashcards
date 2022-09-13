@@ -8,7 +8,6 @@ function Header({ selectMode }) {
     <nav>
       <button onClick={() => handleClick('menu')}>menu</button>
       <button onClick={() => handleClick('grid')}>grid</button>
-      <button onClick={() => handleClick('carousel')}>carousel</button>
     </nav>
   )
 

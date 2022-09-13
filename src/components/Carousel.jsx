@@ -1,4 +1,4 @@
-import { FaChevronLeft, FaChevronRight, FaCircle } from 'react-icons/fa'
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 import Card from './Card'
 
 function Carousel({ items, haveItems, counter, decreaseCounter, increaseCounter }) {

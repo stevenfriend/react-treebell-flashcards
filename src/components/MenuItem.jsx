@@ -2,32 +2,43 @@ import { useEffect, useRef } from 'react'
 import Card from './Card'
 import SelectedIcon from './SelectedIcon'
 
-function MenuItem({ item, alterItems, index }) {
+function MenuItem({ item, selectItems, index }) {
 
   const ref = useRef(null)
-  
-  const menuItem = (
-    <div ref={ref} style={{position: 'relative'}}>
-      <Card image={item.image} />
-      <SelectedIcon selected={item.selected} />
-    </div>
-  )
 
   const handleClick = () => {
-    alterItems(index)
+    selectItems(index)
+  }
+
+  const handleDragStart = () => {
+    ref.current.classList.add('dragging')
+    console.log(`You started dragging ${item.name}`)
+  }
+
+  const handleDragEnd = (e) => {
+    ref.current.classList.remove('dragging')
+    console.log(`You stopped dragging ${item.name}`)
   }
 
   useEffect(
     () => {
-      const node = ref.current;
-      node.addEventListener('click', handleClick)
-      return () =>  node.removeEventListener('click', handleClick)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []    
+      const element = ref.current;
+      element.addEventListener('click', handleClick)
+      element.addEventListener('dragstart', handleDragStart)
+      element.addEventListener('dragend', handleDragEnd)
+      return () =>  {
+        element.removeEventListener('click', handleClick)
+        element.removeEventListener('dragstart', handleDragStart)
+        element.addEventListener('dragend', handleDragEnd)
+      }
+    } 
   )
 
   return (
-    menuItem
+    <div className='item' draggable='true' ref={ref} style={{position: 'relative'}} >
+      <Card image={item.image} />
+      <SelectedIcon selected={item.selected} />
+    </div>
   )
 }
 

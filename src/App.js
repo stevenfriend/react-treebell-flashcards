@@ -1,25 +1,33 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import './App.css'
 import Header from './components/Header'
 import Menu from './components/Menu'
 import Grid from './components/Grid'
-import Carousel from './components/Carousel'
 import ItemData from './data/ItemData'
 
 function App() {
   const [items, setItems] = useState(ItemData)
-  const [haveItems, setHaveItems] = useState(false)
   const [mode, setMode] = useState('menu')
-  const [counter, setCounter] = useState(0)
 
-  // Alter items
-  const alterItems = (index) => {
-    setItems( prevItems => {
-      const tempItems = [...prevItems]
-      const alteredItem = {...prevItems[index]}
-      alteredItem.selected = alteredItem.selected ? false : true
-      tempItems.splice(index, 1, alteredItem)
-      return tempItems
+  // Move items
+  const moveItems = (sourceIndex, targetIndex) => {
+    setItems( prev => {
+      const items = [...prev]
+      const source = prev[sourceIndex]
+      items.splice(sourceIndex, 1)
+      items.splice(targetIndex, 0, source)
+      return items
+    })
+  }
+
+  // Select items
+  const selectItems = (index) => {
+    setItems( prev => {
+      const items = [...prev]
+      const targetItem = {...items[index]}
+      targetItem.selected = targetItem.selected ? false : true
+      items.splice(index, 1, targetItem)
+      return items
     })
   }
 
@@ -28,51 +36,11 @@ function App() {
     setMode(mode)
   }
 
-  // Check if there are items
-  const checkItems = () => {
-    let bool = false
-    items.forEach(element => { if(element.selected) bool = true })
-    return bool
-  } 
-
-  // Update the carousel counter
-  useEffect(() => {
-    if(checkItems()) {
-      setHaveItems(true)
-      if(!items[counter].selected) increaseCounter()
-    } else {
-      setHaveItems(false)
-    }
-  }, [items])
-
-  // Decrease the carousel counter
-  const decreaseCounter = (arg) => {
-    if(checkItems()) {
-      setCounter( prev => {
-        let newCounter = typeof arg === "undefined" ? prev : arg
-        newCounter = newCounter === 0 ? items.length - 1 : newCounter - 1
-        return items[newCounter].selected ? newCounter: decreaseCounter(newCounter)
-      })
-    }
-  }
-
-  // Increase the carousel counter
-  const increaseCounter = (arg) => {
-    if(checkItems()) {
-      setCounter( prev => {
-        let newCounter = typeof arg === "undefined" ? prev : arg
-        newCounter = newCounter >= items.length - 1 ? 0 : newCounter + 1
-        return items[newCounter].selected ? newCounter : increaseCounter(newCounter)
-      })
-    }
-  }
-
   return (
     <>
       <Header selectMode={selectMode} />
-      { mode === 'menu' && <Menu items={items} alterItems={alterItems} /> }
-      { mode === 'grid' && <Grid items={items} /> }
-      { mode === 'carousel' && <Carousel items={items} haveItems={haveItems} counter={counter} decreaseCounter={decreaseCounter} increaseCounter={increaseCounter} /> }
+      { mode === 'menu' && <Menu items={items} moveItems={moveItems} selectItems={selectItems} /> }
+      { mode === 'grid' && <Grid items={items} moveItems={moveItems}/> }
     </>
   );
 }
