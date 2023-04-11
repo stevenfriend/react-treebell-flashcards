@@ -1,0 +1,149 @@
+{
+  "groups": [],
+  "cards": [
+    {
+      "id": "clock",
+      "text": "clock",
+      "image": "/flashcards/images/in-a-dark-dark-house/clock.png",
+      "selected": true
+    },
+    {
+      "id": "door",
+      "text": "door",
+      "image": "/flashcards/images/in-a-dark-dark-house/door.png",
+      "selected": true
+    },
+    {
+      "id": "moon",
+      "text": "moon",
+      "image": "/flashcards/images/in-a-dark-dark-house/moon.png",
+      "selected": true
+    },
+    {
+      "id": "chest",
+      "text": "chest",
+      "image": "/flashcards/images/in-a-dark-dark-house/chest.png",
+      "selected": true
+    },
+    {
+      "id": "nose",
+      "text": "nose",
+      "image": "/flashcards/images/in-a-dark-dark-house/nose.png",
+      "selected": true
+    },
+    {
+      "id": "house",
+      "text": "house",
+      "image": "/flashcards/images/in-a-dark-dark-house/house.png",
+      "selected": true
+    },
+    {
+      "id": "eyes",
+      "text": "eyes",
+      "image": "/flashcards/images/in-a-dark-dark-house/eyes.png",
+      "selected": true
+    },
+    {
+      "id": "stars",
+      "text": "stars",
+      "image": "/flashcards/images/in-a-dark-dark-house/stars.png",
+      "selected": true
+    },
+    {
+      "id": "tree",
+      "text": "tree",
+      "image": "/flashcards/images/in-a-dark-dark-house/tree.png",
+      "selected": true
+    },
+    {
+      "id": "stairs",
+      "text": "stairs",
+      "image": "/flashcards/images/in-a-dark-dark-house/stairs.png",
+      "selected": true
+    },
+    {
+      "id": "sun",
+      "text": "sun",
+      "image": "/flashcards/images/in-a-dark-dark-house/sun.png",
+      "selected": true
+    },
+    {
+      "id": "teeth",
+      "text": "teeth",
+      "image": "/flashcards/images/in-a-dark-dark-house/teeth.png",
+      "selected": true
+    },
+    {
+      "id": "claws",
+      "text": "claws",
+      "image": "/flashcards/images/in-a-dark-dark-house/claws.png",
+      "selected": true
+    },
+    {
+      "id": "book",
+      "text": "book",
+      "image": "/flashcards/images/in-a-dark-dark-house/book.png",
+      "selected": true
+    },
+    {
+      "id": "ball",
+      "text": "ball",
+      "image": "/flashcards/images/in-a-dark-dark-house/ball.png",
+      "selected": true
+    },
+    {
+      "id": "duck",
+      "text": "duck",
+      "image": "/flashcards/images/in-a-dark-dark-house/duck.png",
+      "selected": true
+    },
+    {
+      "id": "truck",
+      "text": "truck",
+      "image": "/flashcards/images/in-a-dark-dark-house/truck.png",
+      "selected": true
+    },
+    {
+      "id": "cat",
+      "text": "cat",
+      "image": "/flashcards/images/in-a-dark-dark-house/cat.png",
+      "selected": true
+    },
+    {
+      "id": "apple",
+      "text": "apple",
+      "image": "/flashcards/images/in-a-dark-dark-house/apple.png",
+      "selected": true
+    },
+    {
+      "id": "bed",
+      "text": "bed",
+      "image": "/flashcards/images/in-a-dark-dark-house/bed.png",
+      "selected": true
+    },
+    {
+      "id": "dog",
+      "text": "dog",
+      "image": "/flashcards/images/in-a-dark-dark-house/dog.png",
+      "selected": true
+    },
+    {
+      "id": "bus",
+      "text": "bus",
+      "image": "/flashcards/images/in-a-dark-dark-house/bus.png",
+      "selected": true
+    },
+    {
+      "id": "cake",
+      "text": "cake",
+      "image": "/flashcards/images/in-a-dark-dark-house/cake.png",
+      "selected": true
+    },
+    {
+      "id": "bike",
+      "text": "bike",
+      "image": "/flashcards/images/in-a-dark-dark-house/bike.png",
+      "selected": true
+    }
+  ]
+}

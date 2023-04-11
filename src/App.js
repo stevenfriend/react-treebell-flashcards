@@ -1,48 +1,28 @@
-import { useState } from 'react'
-import './App.css'
-import Header from './components/Header'
+import React from 'react'
+import { ItemProvider } from './context/ItemContext'
+import { Route, Routes } from 'react-router-dom'
+import Navbar from './components/Navbar'
 import Menu from './components/Menu'
+import Gallery from './components/Gallery'
 import Grid from './components/Grid'
-import ItemData from './data/ItemData'
+import WhatsMissing from './components/WhatsMissing'
+import Concentration from './components/Concentration'
 
 function App() {
-  const [items, setItems] = useState(ItemData)
-  const [mode, setMode] = useState('menu')
-
-  // Move items
-  const moveItems = (sourceIndex, targetIndex) => {
-    setItems( prev => {
-      const items = [...prev]
-      const source = prev[sourceIndex]
-      items.splice(sourceIndex, 1)
-      items.splice(targetIndex, 0, source)
-      return items
-    })
-  }
-
-  // Select items
-  const selectItems = (index) => {
-    setItems( prev => {
-      const items = [...prev]
-      const targetItem = {...items[index]}
-      targetItem.selected = targetItem.selected ? false : true
-      items.splice(index, 1, targetItem)
-      return items
-    })
-  }
-
-  // Select mode
-  const selectMode = (mode) => {
-    setMode(mode)
-  }
-
   return (
-    <>
-      <Header selectMode={selectMode} />
-      { mode === 'menu' && <Menu items={items} moveItems={moveItems} selectItems={selectItems} /> }
-      { mode === 'grid' && <Grid items={items} moveItems={moveItems}/> }
-    </>
-  );
+    <div className="container">
+        <Navbar />
+        <ItemProvider>
+          <Routes>
+            <Route exact path="/flashcards/" element={<Menu />}></Route>
+            <Route path="/flashcards/gallery" element={<Gallery />}></Route>
+            <Route path="/flashcards/grid" element={<Grid />}></Route>
+            <Route path="/flashcards/whats-missing" element={<WhatsMissing />}></Route>
+            <Route path="/flashcards/concentration" element={<Concentration />}></Route>
+          </Routes>
+        </ItemProvider>
+      </div>
+  )
 }
 
-export default App;
+export default App

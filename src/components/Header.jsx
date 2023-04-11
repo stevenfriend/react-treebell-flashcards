@@ -1,16 +1,16 @@
-function Header({ selectMode }) {
+import React from 'react'
+import { Link } from 'react-router-dom'
 
-  const handleClick = (mode) => {
-    selectMode(mode)
-  }
-
+function Header() {
   return (
     <nav>
-      <button onClick={() => handleClick('menu')}>menu</button>
-      <button onClick={() => handleClick('grid')}>grid</button>
+      <Link to='/silly-willy/'><button>menu</button></Link>
+      <Link to='/silly-willy/carousel'><button>carousel</button></Link>
+      <Link to='/silly-willy/grid'><button>grid</button></Link>
+      <Link to='/silly-willy/memory-game'><button>Memory Game</button></Link>
+      <Link to='/silly-willy/missing-game'><button>Missing Game</button></Link>
     </nav>
   )
-
 }
 
 export default Header

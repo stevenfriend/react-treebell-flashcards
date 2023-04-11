@@ -1,9 +1,10 @@
 import React, { useState, useContext, useEffect } from 'react'
 import Card from './Card'
+import ColorPicker from './ColorPicker'
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 import ItemContext from '../context/ItemContext'
 
-function Grid() {
+function WhatsMissing() {
   const { myCards } = useContext(ItemContext)
   const [page, setPage] = useState(0)
   let cols = 3
@@ -55,12 +56,13 @@ function Grid() {
       <button className='chevron' onClick={left} ><FaChevronLeft /></button>
       <div className='card-grid'>
         {myCards.slice(start, end).map( (card) =>
-          <Card key={card.id} card={card} />
+          <Card key={card.id} card={card} screen={'missing'}/>
         )}
       </div>
       <button className='chevron' onClick={right} ><FaChevronRight /></button>
+      <ColorPicker />
     </div>
   )
 }
 
-export default Grid
+export default WhatsMissing
