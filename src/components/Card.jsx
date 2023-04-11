@@ -42,6 +42,7 @@ function Card({ card, index, screen, options }) {
     onDragOver={ e => handleDragOver(e, card) }
     onClick={handleClick}
     >
+      <img className={'card-frame'} src={'/flashcards/images/lets-begin/turquoise-frame.png'} alt='card front'/>
       <img className={'card-image'} src={card.image} alt='card front' onLoad={resizeCardText}/>
       <div className='card-text-container'>
         <p className={'card-text'} style={textStyle}>{card.text}</p>
