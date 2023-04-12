@@ -99,9 +99,9 @@ function Gallery() {
         }} ><FaChevronRight /></button>
         <input className='slider' type="range" id="carousel-slider" name="slider" min="0" max={myCards.length-1} ref={slider}></input>
         <nav className='display-options'>
-          <button className='shuffle-button' onClick={handleShuffle}><BiShuffle /></button>
-          <button className='shuffle-button' onClick={toggleImage}><BiImage /></button>
-          <button className='shuffle-button' onClick={toggleText}><IoText /></button>
+          <button className={`display-button${options.shuffleCards ? ' toggle' : ''}`} onClick={handleShuffle}><BiShuffle /></button>
+          <button className={`display-button${options.hideImage ? ' toggle' : ''}`} onClick={toggleImage}><BiImage /></button>
+          <button className={`display-button${options.hideText ? ' toggle' : ''}`} onClick={toggleText}><IoText /></button>
         </nav>
       </div>
   )

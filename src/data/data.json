@@ -1,4 +1,48 @@
 {
+  "lets-begin1": {
+    "groups": [
+      "The Vowels",
+      "Unit 2 Colors and Shapes",
+      "Unit 3 At the Store",
+      "Unit 4 People at Home",
+      "Unit 5 Happy Birthday!",
+      "Unit 6 Outdoors",
+      "Unit 7 Food",
+      "Unit 8 Animals"
+    ],
+    "cards": [
+      { "id": 1, "unit": "The Vowels", "text": "ant", "image": "/flashcards/images/lets-begin1/lb1v001.png",
+      "selected": true },
+      { "id": 2, "unit": "The Vowels", "text": "alligator", "image": "/flashcards/images/lets-begin1/lb1v002.png",
+      "selected": true },
+      { "id": 3, "unit": "The Vowels", "text": "apple", "image": "/flashcards/images/lets-begin1/lb1v003.png",
+      "selected": true },
+      { "id": 4, "unit": "The Vowels", "text": "elbow", "image": "/flashcards/images/lets-begin1/lb1v004.png",
+      "selected": true },
+      { "id": 5, "unit": "The Vowels", "text": "egg", "image": "/flashcards/images/lets-begin1/lb1v005.png",
+      "selected": true },
+      { "id": 6, "unit": "The Vowels", "text": "elephant", "image": "/flashcards/images/lets-begin1/lb1v006.png",
+      "selected": true },
+      { "id": 7, "unit": "The Vowels", "text": "ink", "image": "/flashcards/images/lets-begin1/lb1v007.png",
+      "selected": true },
+      { "id": 8, "unit": "The Vowels", "text": "igloo", "image": "/flashcards/images/lets-begin1/lb1v008.png",
+      "selected": true },
+      { "id": 9, "unit": "The Vowels", "text": "insect", "image": "/flashcards/images/lets-begin1/lb1v009.png",
+      "selected": true },
+      { "id": 10, "unit": "The Vowels", "text": "octopus", "image": "/flashcards/images/lets-begin1/lb1v010.png",
+      "selected": true },
+      { "id": 11, "unit": "The Vowels", "text": "omelet", "image": "/flashcards/images/lets-begin1/lb1v011.png",
+      "selected": true },
+      { "id": 12, "unit": "The Vowels", "text": "ostrich", "image": "/flashcards/images/lets-begin1/lb1v012.png",
+      "selected": true },
+      { "id": 13, "unit": "The Vowels", "text": "umpire", "image": "/flashcards/images/lets-begin1/lb1v013.png",
+      "selected": true },
+      { "id": 14, "unit": "The Vowels", "text": "umbrella", "image": "/flashcards/images/lets-begin1/lb1v014.png",
+      "selected": true },
+      { "id": 15, "unit": "The Vowels", "text": "upside down", "image": "/flashcards/images/lets-begin1/lb1v015.png",
+      "selected": true, "shrink": true }
+    ]
+  },
   "silly-willy": {
     "groups": [],
     "cards": [

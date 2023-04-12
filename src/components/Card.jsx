@@ -15,6 +15,8 @@ function Card({ card, index, screen, options }) {
     setTextStyle( prev => { 
       const style = {...prev}
       style.fontSize = width*.15 
+      // Think of more elegant solution thatn this
+      if(card.shrink) style.fontSize = width*.1
       return style
     })
   }
@@ -42,7 +44,7 @@ function Card({ card, index, screen, options }) {
     onDragOver={ e => handleDragOver(e, card) }
     onClick={handleClick}
     >
-      <img className={'card-frame'} src={'/flashcards/images/lets-begin/turquoise-frame.png'} alt='card front'/>
+      <img className={'card-frame'} src={'/flashcards/images/lets-begin1/turquoise-frame.png'} alt='card front'/>
       <img className={'card-image'} src={card.image} alt='card front' onLoad={resizeCardText}/>
       <p className={'card-text'} style={textStyle}>{card.text}</p>
     </div>
