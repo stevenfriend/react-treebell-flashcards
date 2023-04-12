@@ -13,8 +13,9 @@
   --nav-size: 60px;
   --border: 1px solid #474a4d;
   --speed: 500ms;
-  --card-width: 100px;
-  --picture-width: 0px
+  
+  --card-aspect-ratio: 38 / 27;
+  --card-image-width: 60%;
 }
 
 .active {
@@ -35,13 +36,13 @@ a {
 }
 
 .navbar {
-  z-index: 1;
   margin: 1rem;
   padding: 1rem;
   flex: 0 0 auto;
   align-self: center;
   background-color: var(--bg);
   border-bottom: var(--border);
+  z-index: 100;
 }
 
 .navbar-nav {
@@ -102,7 +103,7 @@ body,
   width: 100%;
   max-width: 1000px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 15px;
 }
 
@@ -256,32 +257,28 @@ body,
 }
 
 .card {
-  /* width: var(--card-width); */
-  width: 100%;
-  max-width: 600px;
-  min-height: 0;
-  aspect-ratio: 38 / 27;
-  box-sizing: border-box;
   position: relative;
+  width: 100%;
+  max-width: 800px;
+  aspect-ratio: var(--card-aspect-ratio);
   background-color: white;
-  user-select: none;
   overflow: hidden;
   transition: transform 1s;
-  filter: drop-shadow(.1em .1em .1em rgba(0, 0, 0, .5));
+  /* filter: drop-shadow(.1em .1em .1em rgba(0, 0, 0, .5)); */
   outline: solid 0.2rem rgba(0, 149, 255, 0);
   transition: outline .1s;
+}
+
+.card.border {
+  /* border: solid 0.1rem rgba(0, 0, 0, 0.3); */
+  border-radius: 0.5rem;
 }
 
 .card-frame {
   width: 100%;
   height: 100%;
   position: absolute;
-  z-index: 10
-}
-
-.card.border {
-  /* border: solid 0.1rem rgba(0, 0, 0, 0.3); */
-  border-radius: 0.5rem;
+  z-index: 3;
 }
 
 .back {
@@ -296,22 +293,25 @@ body,
 
 .card-image {
   position: absolute;
-  width: 70%;
+  width: var(--card-image-width);
+  top: 50%;
   left: 50%;
+  transform: translate(-50%, -70%);
   transition: opacity .5s, transform .5s;
   -webkit-user-drag: none;
-}
-
-.card-text-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  z-index: 1;
 }
 
 .card-text {
+  position: absolute;
+  padding: 0 5%;
+  width: 100%;
+  top: 50%;
   font-family: 'Poppins', sans-serif;
   text-align: center;
+  transform: translate(0, 30%);
   transition: opacity .5s, transform .5s;
+  z-index: 1;
 }
 
 .hidden {
@@ -320,23 +320,23 @@ body,
 
 .text-card .card-image{
   opacity: 0;
-  transform: translate(0, -35%);
+  transform: translate(-50%, -100%);
   transition: opacity .5s, transform .5s;
 }
 
 .text-card .card-text {
-  transform: translate(0, -100%);
+  transform: translate(0, -50%);
   transition: opacity .5s, transform .5s;
 }
 
 .picture-card .card-image{
-  transform: translate(0, 20%);
+  transform: translate(-50%, -50%);
   transition: opacity .5s, transform .5s;
 }
 
 .picture-card .card-text {
   opacity: 0;
-  transform: translate(0, 20%);
+  transform: translate(0, 60%);
   transition: opacity .5s, transform .5s;
 }
 
