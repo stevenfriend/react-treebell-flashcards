@@ -10,6 +10,14 @@ function Card({ card, index, screen, options }) {
   const { handleDragOver } = useContext(ItemContext)
   const cardRef = useRef()
 
+  useEffect(() => {
+    resizeCardText()
+    window.addEventListener('resize', resizeCardText)
+    return () =>  {
+      window.removeEventListener('resize', resizeCardText)
+    }
+  }, [cardRef])
+  
   const resizeCardText = () => {
     const width = cardRef.current.getBoundingClientRect().width
     setTextStyle( prev => { 
@@ -20,14 +28,6 @@ function Card({ card, index, screen, options }) {
       return style
     })
   }
-
-  useEffect(() => {
-    resizeCardText()
-    window.addEventListener('resize', resizeCardText)
-    return () =>  {
-      window.removeEventListener('resize', resizeCardText)
-    }
-  }, [cardRef])
   
   const handleClick = () => {
     if(screen === 'menu') {
@@ -38,7 +38,7 @@ function Card({ card, index, screen, options }) {
   }
 
   return (
-    <div ref={cardRef} className={`card ${hidden ? 'hidden' : ''} ${options.border ? 'border' : ''} ${options.hideText ? 'picture-card' : ''} ${options.hideImage ? 'text-card' : ''} ${screen === 'menu' && card.selected ? 'card-selected' : ''}`}
+    <div ref={cardRef} className={`card${hidden ? ' hidden' : ''}${options.border ? ' border' : ''}${options.hideText && !options.showAnswer ? ' picture-card' : ''}${options.hideImage && !options.showAnswer ? ' text-card' : ''}${screen === 'menu' && card.selected ? ' card-selected' : ''}`}
     draggable 
     onDragStart={ e => handleDragStart(e, card) }
     onDragOver={ e => handleDragOver(e, card) }
