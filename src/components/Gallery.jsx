@@ -11,7 +11,7 @@ function Gallery() {
     hideText: false,
     shuffleCards: false,
   })
-  const { myCards, shuffleDeck } = useContext(ItemContext)
+  const { myCards, style, frame, shuffleDeck } = useContext(ItemContext)
   const [counter, setCounter] = useState(0)
   const [holdingKey, setHoldingKey] = useState(false)
   const slider = useRef(null)
@@ -92,8 +92,8 @@ useEffect(
   const toggleImage = () => {
     setOptions(prev => {
       const options = {...prev}
-      options.hideText = !prev.hideImage && false
-      options.hideImage = prev.hideImage ? false : true
+      options.textCard = !prev.imageCard && false
+      options.imageCard = prev.imageCard ? false : true
       return options
     })
   }
@@ -101,8 +101,8 @@ useEffect(
   const toggleText = () => {
     setOptions(prev => {
       const options = {...prev}
-      options.hideImage = !prev.hideText && false
-      options.hideText = prev.hideText ? false : true
+      options.imageCard = !prev.textCard && false
+      options.textCard = prev.textCard ? false : true
       return options
     })
   }
@@ -115,7 +115,7 @@ useEffect(
           slider.current.value = counter
         }} ><FaChevronLeft /></button>
         <div className="screenshare">
-          <Card key={myCards[counter].id} card={myCards[counter]} options={options} />
+          <Card key={myCards[counter].id} card={myCards[counter]} style={style} frame={frame} options={options} />
         </div>
         <button className='chevron' onClick={(e) => {
           e.currentTarget.blur()
@@ -128,11 +128,11 @@ useEffect(
             e.currentTarget.blur()
             handleShuffle()
             }}><BiShuffle /></button>
-          <button className={`display-button${options.hideImage ? ' toggle' : ''}`} onClick={(e) => {
+          <button className={`display-button${options.imageCard ? ' toggle' : ''}`} onClick={(e) => {
             e.currentTarget.blur()
             toggleImage()
           }}><BiImage /></button>
-          <button className={`display-button${options.hideText ? ' toggle' : ''}`} onClick={(e) => {
+          <button className={`display-button${options.textCard ? ' toggle' : ''}`} onClick={(e) => {
             e.currentTarget.blur()
             toggleText()
           }}><IoText /></button>

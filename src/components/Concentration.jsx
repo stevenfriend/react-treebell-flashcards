@@ -3,7 +3,7 @@ import MemoryGameCard from './MemoryGameCard'
 import ItemContext from '../context/ItemContext'
 
 function Concentration() {
-  const { myCards } = useContext(ItemContext)
+  const { myCards, style } = useContext(ItemContext)
   const [gameState, setGameState] = useState({ start: false })
   const [gameDeck, setGameDeck] = useState([])
   const [pick1, setPick1] = useState(null)
@@ -97,6 +97,7 @@ function Concentration() {
               <MemoryGameCard 
                 key={card.id}
                 card={card}
+                style={style} 
                 options={{
                   border: false,
                   hideText: false,

@@ -6,6 +6,8 @@ const ItemContext = createContext()
 export const ItemProvider = ({ children }) => {
   const [deck, setDeck] = useState()
   const [cards, setCards] = useState()
+  const [style, setStyle] = useState()
+  const [frame, setFrame] = useState()
   const [myCards, setMyCards] = useState()
   const [loaded, setLoaded] = useState(false)
   const [source, setSource] = useState()
@@ -13,15 +15,21 @@ export const ItemProvider = ({ children }) => {
   useEffect(() => {
     if(deck) {
       setCards(ItemData[`${deck}`].cards)
+      setStyle(ItemData[`${deck}`].style)
+      setFrame(ItemData[`${deck}`].frame)
       setMyCards(cards.filter((card) => card.selected))
     }
   }, [deck])
-  
+
   // Select deck
-  const handleSelectDeck = (deck) => {
-    setDeck(deck)
-    setCards(ItemData[`${deck}`].cards)
-    setMyCards(ItemData[`${deck}`].cards.filter((card) => card.selected))
+  const handleSelectDeck = (newDeck) => {
+    if(newDeck !== deck)  {
+      setDeck(newDeck)
+      setCards(ItemData[`${newDeck}`].cards)
+      setStyle(ItemData[`${newDeck}`].style)
+      setFrame(ItemData[`${newDeck}`].frame)
+      setMyCards(ItemData[`${newDeck}`].cards.filter((card) => card.selected))
+    }
   }
 
   // Select cards
@@ -47,7 +55,6 @@ export const ItemProvider = ({ children }) => {
     e.preventDefault()
     if( target !== source ) moveCards(target)
   }
-
 
   // Move cards
   const moveCards = (target) => {
@@ -79,7 +86,7 @@ export const ItemProvider = ({ children }) => {
   }
 
   return (
-    <ItemContext.Provider value={{ deck, cards, myCards, loaded, handleSelectDeck, selectCard, handleDragStart, handleDragOver, shuffleDeck, setLoaded }}>
+    <ItemContext.Provider value={{ deck, cards, style, frame, myCards, loaded, handleSelectDeck, selectCard, handleDragStart, handleDragOver, shuffleDeck, setLoaded }}>
       {children}
     </ItemContext.Provider>
   )

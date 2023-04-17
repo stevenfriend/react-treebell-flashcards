@@ -14,7 +14,7 @@
   --border: 1px solid #474a4d;
   --speed: 500ms;
   
-  --card-aspect-ratio: 38 / 27;
+  --card-aspect-ratio: 4 / 3;
   --card-image-width: 60%;
 }
 
@@ -273,28 +273,18 @@ body,
   position: relative;
   width: 100%;
   max-width: 800px;
-  aspect-ratio: var(--card-aspect-ratio);
   background-color: white;
   overflow: hidden;
   transition: transform 1s;
-  /* filter: drop-shadow(.1em .1em .1em rgba(0, 0, 0, .5)); */
   outline: solid 0.2rem rgba(0, 149, 255, 0);
   transition: outline .1s;
 }
 
 .card.border {
-  /* border: solid 0.1rem rgba(0, 0, 0, 0.3); */
   border-radius: 0.5rem;
 }
 
 .card-frame {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  z-index: 3;
-}
-
-.card-selected .card-frame {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -311,55 +301,9 @@ body,
   font-size: 3vw;
 }
 
-.card-image {
-  position: absolute;
-  width: var(--card-image-width);
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -70%);
-  transition: opacity .5s, transform .5s;
-  -webkit-user-drag: none;
-  z-index: 1;
-}
-
-.card-text {
-  position: absolute;
-  padding: 0 5%;
-  width: 100%;
-  top: 50%;
-  font-family: 'Poppins', sans-serif;
-  text-align: center;
-  transform: translate(0, 30%);
-  transition: opacity .5s, transform .5s;
-  z-index: 1;
-}
-
 .hidden {
   opacity: 0;
 }
-
-.text-card .card-image{
-  opacity: 0;
-  transform: translate(-50%, -100%);
-  transition: opacity .5s, transform .5s;
-}
-
-.text-card .card-text {
-  transform: translate(0, -50%);
-  transition: opacity .5s, transform .5s;
-}
-
-.picture-card .card-image{
-  transform: translate(-50%, -50%);
-  transition: opacity .5s, transform .5s;
-}
-
-.picture-card .card-text {
-  opacity: 0;
-  transform: translate(0, 60%);
-  transition: opacity .5s, transform .5s;
-}
-
 
 .card-selected {
   outline: solid 0.2rem rgba(0, 149, 255, 1);

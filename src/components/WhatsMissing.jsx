@@ -5,7 +5,7 @@ import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 import ItemContext from '../context/ItemContext'
 
 function WhatsMissing() {
-  const { myCards } = useContext(ItemContext)
+  const { myCards, style } = useContext(ItemContext)
   const [page, setPage] = useState(0)
   let cols = 3
   let rows = 3
@@ -56,7 +56,7 @@ function WhatsMissing() {
       <button className='chevron' onClick={left} ><FaChevronLeft /></button>
       <div className='card-grid'>
         {myCards.slice(start, end).map( (card) =>
-          <Card key={card.id} card={card} screen={'missing'}/>
+          <Card key={card.id} card={card} style={style} screen={'missing'}/>
         )}
       </div>
       <button className='chevron' onClick={right} ><FaChevronRight /></button>

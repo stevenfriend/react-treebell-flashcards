@@ -1,10 +1,10 @@
 import React, { useState, useContext, useRef, useEffect } from 'react'
 import ItemContext from '../context/ItemContext'
 
-function Card({ card, index, screen, options }) {
+function Card({ card, style, frame, index, screen, options }) {
 
   const [hidden, setHidden] = useState(false)
-  const [textStyle, setTextStyle] = useState({ fontSize: '1rem' })
+  const [textSize, setTextSize] = useState({ fontSize: '1rem' })
   const { selectCard } = useContext(ItemContext)
   const { handleDragStart } = useContext(ItemContext)
   const { handleDragOver } = useContext(ItemContext)
@@ -16,16 +16,16 @@ function Card({ card, index, screen, options }) {
     return () =>  {
       window.removeEventListener('resize', resizeCardText)
     }
-  }, [cardRef])
+  }, [])
   
   const resizeCardText = () => {
     const width = cardRef.current.getBoundingClientRect().width
-    setTextStyle( prev => { 
-      const style = {...prev}
-      style.fontSize = width*.15 
-      // Think of more elegant solution thatn this
-      if(card.shrink) style.fontSize = width*.1
-      return style
+    setTextSize( prev => { 
+      const textSize = {...prev}
+      textSize.fontSize = width*.15 
+      // Think of more elegant solution than this
+      if(card.shrink) textSize.fontSize = width*.1
+      return textSize
     })
   }
   
@@ -37,16 +37,46 @@ function Card({ card, index, screen, options }) {
     } 
   }
 
+  const styleImage = () => {
+    if(options.imageCard && !options.showAnswer) {
+      const newStyle = {...style.image}
+      newStyle.transform = "translate(-50%, -50%)"
+      return newStyle
+    } else if(options.textCard && !options.showAnswer) {
+      const newStyle = {...style.image}
+      newStyle.opacity = "0"
+      newStyle.transform = "translate(-50%, -100%)"
+      return newStyle
+    }
+    return style.image
+  } 
+
+  const styleText = () => {
+    if(options.textCard && !options.showAnswer) {
+      const newStyle = {...style.text}
+      newStyle.transform = "translate(0, -50%)"
+      return { ...newStyle, ...textSize }
+    } else if(options.imageCard && !options.showAnswer) {
+      const newStyle = {...style.text}
+      newStyle.opacity = "0"
+      newStyle.transform = "translate(0, 60%)"
+      return { ...newStyle, ...textSize }
+    }
+    return { ...style.text, ...textSize }
+  }
+
   return (
-    <div ref={cardRef} className={`card${hidden ? ' hidden' : ''}${options.border ? ' border' : ''}${options.hideText && !options.showAnswer ? ' picture-card' : ''}${options.hideImage && !options.showAnswer ? ' text-card' : ''}${screen === 'menu' && card.selected ? ' card-selected' : ''}`}
-    draggable 
-    onDragStart={ e => handleDragStart(e, card) }
-    onDragOver={ e => handleDragOver(e, card) }
-    onClick={handleClick}
+    <div ref={cardRef} 
+      draggable 
+      className={`card${hidden ? ' hidden' : ''}${options.border ? ' border' : ''}${screen === 'menu' && card.selected ? ' card-selected' : ''}`}
+      style={style.card}
+      onDragStart={ e => handleDragStart(e, card) }
+      onDragOver={ e => handleDragOver(e, card) }
+      onClick={handleClick}
     >
-      <img className={'card-frame'} src={'/flashcards/images/lets-begin1/turquoise-frame.png'} alt='card front'/>
-      <img className={'card-image'} src={card.image} alt='card front' onLoad={resizeCardText}/>
-      <p className={'card-text'} style={textStyle}>{card.text}</p>
+      <img className={'card-frame'} src={frame} alt='card front'/>
+      <img className={'card-image'} style={styleImage()} src={card.image} alt='card front' onLoad={resizeCardText}/>
+      <p className={'card-text'} style={styleText()}>{card.text}</p>
     </div>
   )
 }
