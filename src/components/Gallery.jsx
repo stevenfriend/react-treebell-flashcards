@@ -108,14 +108,14 @@ useEffect(
   }
 
   return (
-      <div className='card-carousel'>
+      <div className='gallery'>
         <button className='chevron' onClick={(e) => {
           e.currentTarget.blur()
           left()
           slider.current.value = counter
         }} ><FaChevronLeft /></button>
         <div className="screenshare">
-          <Card key={myCards[counter].id} card={myCards[counter]} style={style} frame={frame} options={options} />
+          <Card key={myCards[counter].id} card={myCards[counter]} style={style} frame={frame} screen={'gallery'} options={options} />
         </div>
         <button className='chevron' onClick={(e) => {
           e.currentTarget.blur()

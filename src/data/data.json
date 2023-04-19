@@ -29,10 +29,10 @@
         "top": "50%",
         "fontFamily": "'Poppins', sans-serif",
         "textAlign": "center",
-        "transform": "translate(0, 30%)",
         "transition": "opacity .5s, transform .5s",
         "zIndex": "1"
-      }
+      },
+      "textPositionFactor": "20"
     },
     "frame": "/flashcards/images/lets-begin-1/turquoise-frame.png",
     "cards": [
@@ -98,10 +98,10 @@
         "top": "50%",
         "fontFamily": "'Poppins', sans-serif",
         "textAlign": "center",
-        "transform": "translate(0, 100%)",
         "transition": "opacity .5s, transform .5s",
         "zIndex": "1"
-      }
+      },
+      "textPositionFactor": "30"
     },
     "frame": "/flashcards/images/lets-go-2/yellow-frame.png",
     "cards": [

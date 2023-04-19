@@ -6,6 +6,7 @@
   box-sizing: border-box;
 }
 
+
 :root {
   --bg: rgba(0, 149, 255, 1);
   --bg-accent: #484a4d;
@@ -120,8 +121,8 @@ body,
   gap: 20px;
 }
 
-.card-carousel {
-  width: 70vw;
+.gallery {
+  width: 90vw;
   display: grid;
   margin: 0 auto;
   grid-template-columns: 1fr 10fr 1fr;
@@ -184,11 +185,12 @@ body,
 
 .screenshare {
   aspect-ratio: 16 / 9;
+  min-height: 0;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* border: dashed rgba(0, 0, 0, 0.3); */
+  border: dashed rgba(255, 255, 255, 1);
   padding: 1%;
 }
 
@@ -270,14 +272,10 @@ body,
 }
 
 .card {
-  position: relative;
-  width: 100%;
-  max-width: 800px;
+  contain: strict;
   background-color: white;
-  overflow: hidden;
-  transition: transform 1s;
   outline: solid 0.2rem rgba(0, 149, 255, 0);
-  transition: outline .1s;
+  /* transition: transform 1s, outline .1s; */
 }
 
 .card.border {
@@ -359,4 +357,37 @@ body,
 
 .peek {
   visibility: hidden;
+}
+
+.hide-text {
+  opacity: 0;
+  transform: translate(0, 70%);
+}
+
+.show-text {
+  transform: translate(0, -50%);
+}
+
+.animate-text {
+  transition: "opacity .5s, transform .5s"
+}
+
+
+@keyframes hide {
+  from {
+    /* opacity: 1; */
+  }
+  
+  to {
+    opacity: 0;
+    transform: translate(0, 70%);
+  }
+}
+
+.no-transition {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -ms-transition: none !important;
+  -o-transition: none !important;
+  transition: none !important;
 }
