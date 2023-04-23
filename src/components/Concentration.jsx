@@ -1,9 +1,9 @@
 import React, { useState, useContext, useEffect } from 'react'
-import MemoryGameCard from './MemoryGameCard'
+import ConcentrationCard from './ConcentrationCard'
 import ItemContext from '../context/ItemContext'
 
 function Concentration() {
-  const { myCards, style } = useContext(ItemContext)
+  const { myCards, style, frame } = useContext(ItemContext)
   const [gameState, setGameState] = useState({ start: false })
   const [gameDeck, setGameDeck] = useState([])
   const [pick1, setPick1] = useState(null)
@@ -92,18 +92,10 @@ function Concentration() {
     <>
       <button onClick={startGame}>start</button>
       { gameState && (
-        <div className='memory-game-grid'>
+        <div className='concentration-grid'>
           {gameDeck.map((card, index) => 
-              <MemoryGameCard 
-                key={card.id}
-                card={card}
-                style={style} 
-                options={{
-                  border: false,
-                  hideText: false,
-                  shuffleCards: false,
-                }}
-                index={index}
+              <ConcentrationCard 
+                key={card.id} card={card} style={style} frame={frame} index={index}
                 handleClick={handleClick}
                 flipped={card === pick1 || card === pick2 || card.matched}
               />

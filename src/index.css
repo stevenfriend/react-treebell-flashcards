@@ -14,7 +14,6 @@
   --nav-size: 60px;
   --border: 1px solid #474a4d;
   --speed: 500ms;
-  
   --card-aspect-ratio: 4 / 3;
   --card-image-width: 60%;
 }
@@ -84,8 +83,7 @@ a {
 }
 
 html,
-body,
-#root {
+body {
   height: 100%;
   margin: 0;
   box-sizing: border-box;
@@ -109,23 +107,28 @@ body,
 }
 
 .card-grid-container {
-  margin: 40px auto;
-  width: 100vmin;
+  margin: 0 auto;
+  width: 95%;
   display: grid;
   grid-template-columns: auto 1fr auto;
 }
 
 .card-grid {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  min-height: 0;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 20px;
+  border: dashed rgba(255, 255, 255, 1);
+  padding: 1%;
 }
 
 .gallery {
-  width: 90vw;
+  width: 95%;
   display: grid;
   margin: 0 auto;
-  grid-template-columns: 1fr 10fr 1fr;
+  grid-template-columns: auto 1fr auto;
   justify-items: center;
   align-items: center;
 }
@@ -206,37 +209,31 @@ body,
   outline: none;
 }
 
-.memory-game-grid {
+.concentration-grid {
+  padding: 25px 15px;
+  margin: 0 auto;
+  width: 100%;
   max-width: 1000px;
-  width: 80vw;
-  margin: 40px auto;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
 }
 
-.memory-game-card {
+.concentration-card {
   position: relative;
-  aspect-ratio: 10 / 8;
   box-sizing: border-box;
   perspective: 1000px;
   user-select: none;
   transition: all ease-in-out .2s;
-}
+} 
 
-.memory-game-card:hover {
+.concentration-card:hover {
   transform: scale(1.04);
 }
 
-.memory-game-card .front{
-  box-sizing: border-box;
+.concentration-card .front{
   transform: rotateY(180deg);
-  border: solid 0.15rem rgba(0, 0, 0, 0.3);
-  border-radius: 0.2rem;
   backface-visibility: hidden;
-  position: absolute;
-  top: 0;
-	left: 0;
   transition: all ease-in-out .7s;
   overflow: hidden;
 }
@@ -250,14 +247,9 @@ body,
   transform: scale(1.04);
 }
 
-.memory-game-card .back{
+.concentration-card .back{
   box-sizing: border-box;
-  display: flex;
-  border: solid 0.15rem rgba(0, 0, 0, 0.3);
-  border-radius: 0.2rem;
   background-color: white;
-  justify-content: center;
-  align-items: center;
   position: absolute;
   top: 0;
 	left: 0;
@@ -274,12 +266,6 @@ body,
 .card {
   contain: strict;
   background-color: white;
-  outline: solid 0.2rem rgba(0, 149, 255, 0);
-  /* transition: transform 1s, outline .1s; */
-}
-
-.card.border {
-  border-radius: 0.5rem;
 }
 
 .card-frame {
@@ -290,13 +276,12 @@ body,
 }
 
 .back {
+  contain: strict;
   display: flex;
   width: 100%;
-  height: 100%;
   justify-content: center;
   align-items: center;
   font-family: 'Poppins', sans-serif;
-  font-size: 3vw;
 }
 
 .hidden {

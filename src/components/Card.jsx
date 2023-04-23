@@ -105,7 +105,7 @@ function Card({ card, style, frame, index, screen, options }) {
         // Cheesed it
         setTimeout(() => {
           setLoaded(true)
-        }, "100");
+        }, "100")
       }}
     >
       <img className={'card-frame'} src={frame} alt='card front'/>

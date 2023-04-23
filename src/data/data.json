@@ -11,7 +11,10 @@
       "Unit 8 Animals"
     ],
     "style": {
-      "card": {"aspectRatio": "4 / 3"},
+      "card": {
+        "aspectRatio": "4 / 3",
+        "borderRadius": "10px"
+      },
       "image": {
         "position": "absolute",
         "width": "60%",
@@ -80,7 +83,10 @@
       "Unit 8 Doing Things"
     ],
     "style": {
-      "card": {"aspectRatio": "3 / 4"},
+      "card": {
+        "aspectRatio": "3 / 4",
+        "borderRadius": "10px"
+      },
       "image": {
         "position": "absolute",
         "width": "65%",

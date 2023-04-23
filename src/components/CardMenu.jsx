@@ -3,9 +3,7 @@ import ItemContext from '../context/ItemContext'
 import Card from './Card'
 
 function CardMenu() {
-  const { cards } = useContext(ItemContext)
-  const { style } = useContext(ItemContext)
-  const { frame } = useContext(ItemContext)
+  const { cards, style, frame } = useContext(ItemContext)
 
   return (
     <div className='card-menu' >
