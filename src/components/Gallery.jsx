@@ -122,7 +122,7 @@ useEffect(
           right()
           slider.current.value = counter
         }} ><FaChevronRight /></button>
-        <input className='slider' type="range" id="carousel-slider" name="slider" min="0" max={myCards.length-1} ref={slider}></input>
+        <input className='slider' type="range" name="slider" min="0" max={myCards.length-1} ref={slider}></input>
         <nav className='display-options'>
           <button className={`display-button${options.shuffleCards ? ' toggle' : ''}`} onClick={(e) => {
             e.currentTarget.blur()

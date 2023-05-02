@@ -27,7 +27,7 @@
       },
       "text": {  
         "position": "absolute",
-        "padding": "0 5%",
+        "padding": "0 15%",
         "width": "100%",
         "top": "50%",
         "fontFamily": "'Poppins', sans-serif",
@@ -68,7 +68,7 @@
       { "id": 14, "unit": "The Vowels", "text": "umbrella", "image": "/flashcards/images/lets-begin-1/lb1v014.png",
       "selected": true },
       { "id": 15, "unit": "The Vowels", "text": "upside down", "image": "/flashcards/images/lets-begin-1/lb1v015.png",
-      "selected": true, "shrink": true }
+      "selected": true }
     ]
   },
   "lets-go-2": {
@@ -99,7 +99,7 @@
       },
       "text": {  
         "position": "absolute",
-        "padding": "0 10%",
+        "padding": "0 15%",
         "width": "100%",
         "top": "50%",
         "fontFamily": "'Poppins', sans-serif",

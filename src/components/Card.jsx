@@ -35,7 +35,7 @@ function Card({ card, style, frame, index, screen, options }) {
       if(card.text.length < 11) {
         textSize.fontSize = cardWidth*.13 
       } else {
-        textSize.fontSize = cardWidth*.11
+        textSize.fontSize = cardWidth*.10
       }
       return textSize
     })
@@ -67,7 +67,7 @@ function Card({ card, style, frame, index, screen, options }) {
   const styleImage = () => {
     if(options.imageCard && !options.showAnswer) {
       const newStyle = {...style.image}
-      newStyle.transform = "translate(-50%, -50%)"
+      newStyle.transform = "translate(-50%, -50%) scale(1.2)"
       return newStyle
     } else if(options.textCard && !options.showAnswer) {
       const newStyle = {...style.image}
@@ -81,7 +81,7 @@ function Card({ card, style, frame, index, screen, options }) {
   const styleText = () => {   
     const newStyle = {...style.text, ...textSize}
     if(options.textCard && !options.showAnswer) {
-      newStyle.transform = "translate(0, -50%)"
+      newStyle.transform = "translate(0, -50%) scale(1.2)"
       return { ...newStyle }
     } else if(options.imageCard && !options.showAnswer) {
       newStyle.opacity = "0"

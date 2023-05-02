@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react'
 import Card from './Card'
 
-function ConcentrationCard({ card, style, frame, index, handleClick, flipped }) {
+function ConcentrationCard({ card, style, frame, options, index, handleClick, flipped }) {
   
   const [textSize, setTextSize] = useState()
   const cardRef = useRef()
@@ -26,7 +26,7 @@ function ConcentrationCard({ card, style, frame, index, handleClick, flipped }) 
   return (
     <div ref={cardRef} className={`concentration-card ${flipped ? "flipped" : ""}`} onLoad={() => resizeText()}>
       <div className='front'>
-        <Card card={card} style={style} frame={frame} />
+        <Card card={card} style={style} frame={frame} options={options}/>
       </div>
       <div className='back' style={style.card} onClick={() => handleClick(card)}>
         <img className={'card-frame'} src={frame} alt='card front'/>
