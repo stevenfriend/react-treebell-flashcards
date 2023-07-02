@@ -32,8 +32,8 @@ function Card({ card, style, frame, index, screen, options }) {
     const cardWidth = cardRef.current.getBoundingClientRect().width
     setTextSize( prev => { 
       const textSize = {...prev}
-      if(card.text.length < 11) {
-        textSize.fontSize = cardWidth*.13 
+      if(card.text.length < 10) {
+        textSize.fontSize = cardWidth*.12 
       } else {
         textSize.fontSize = cardWidth*.10
       }
@@ -67,7 +67,7 @@ function Card({ card, style, frame, index, screen, options }) {
   const styleImage = () => {
     if(options.imageCard && !options.showAnswer) {
       const newStyle = {...style.image}
-      newStyle.transform = "translate(-50%, -50%) scale(1.2)"
+      newStyle.transform = "translate(-50%, -50%) scale(1.1)"
       return newStyle
     } else if(options.textCard && !options.showAnswer) {
       const newStyle = {...style.image}
