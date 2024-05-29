@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/react-treebell-flashcards/static/css/main.4c2aef73.css",
-    "main.js": "/react-treebell-flashcards/static/js/main.d52bedc3.js",
+    "main.js": "/react-treebell-flashcards/static/js/main.a3c5f595.js",
     "index.html": "/react-treebell-flashcards/index.html",
     "main.4c2aef73.css.map": "/react-treebell-flashcards/static/css/main.4c2aef73.css.map",
-    "main.d52bedc3.js.map": "/react-treebell-flashcards/static/js/main.d52bedc3.js.map"
+    "main.a3c5f595.js.map": "/react-treebell-flashcards/static/js/main.a3c5f595.js.map"
   },
   "entrypoints": [
     "static/css/main.4c2aef73.css",
-    "static/js/main.d52bedc3.js"
+    "static/js/main.a3c5f595.js"
   ]
 }
