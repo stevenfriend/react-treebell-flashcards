@@ -31,17 +31,17 @@ function Navbar() {
   return (
     <nav className="navbar">
       <ul className="navbar-nav">
-        <NavItem text={"Menu"} link={"/flashcards"} handleOpen={handleOpen} handleActive={handleActive}></NavItem>
+        <NavItem text={"Menu"} link={"/react-treebell-flashcards"} handleOpen={handleOpen} handleActive={handleActive}></NavItem>
         <NavItem text={"Views"} open={open.views} active={active.views} handleOpen={handleOpen}>
           <DropdownMenu>
-            <DropdownItem link={"/flashcards/gallery"} handleActive={handleActive} text={"Views"}>Gallery View</DropdownItem>
-            <DropdownItem link={"/flashcards/grid"} handleActive={handleActive} text={"Views"}>Grid View</DropdownItem>
+            <DropdownItem link={"/react-treebell-flashcards/gallery"} handleActive={handleActive} text={"Views"}>Gallery View</DropdownItem>
+            <DropdownItem link={"/react-treebell-flashcards/grid"} handleActive={handleActive} text={"Views"}>Grid View</DropdownItem>
           </DropdownMenu>
         </NavItem>
         <NavItem text={"Games"} open={open.games} active={active.games} handleOpen={handleOpen}>
          <DropdownMenu>
-            <DropdownItem link={"/flashcards/whats-missing"} handleActive={handleActive} text={"Games"}>What's Missing?</DropdownItem>
-            <DropdownItem link={"/flashcards/concentration"} handleActive={handleActive} text={"Games"}>Concentration</DropdownItem>
+            <DropdownItem link={"/react-treebell-flashcards/whats-missing"} handleActive={handleActive} text={"Games"}>What's Missing?</DropdownItem>
+            <DropdownItem link={"/react-treebell-flashcards/concentration"} handleActive={handleActive} text={"Games"}>Concentration</DropdownItem>
           </DropdownMenu>
         </NavItem>
       </ul>

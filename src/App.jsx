@@ -14,11 +14,11 @@ function App() {
         <Navbar />
         <ItemProvider>
           <Routes>
-            <Route exact path="/flashcards/" element={<Menu />}></Route>
-            <Route path="/flashcards/gallery" element={<Gallery />}></Route>
-            <Route path="/flashcards/grid" element={<Grid />}></Route>
-            <Route path="/flashcards/whats-missing" element={<WhatsMissing />}></Route>
-            <Route path="/flashcards/concentration" element={<Concentration />}></Route>
+            <Route exact path="/react-treebell-flashcards/" element={<Menu />}></Route>
+            <Route path="/react-treebell-flashcards/gallery" element={<Gallery />}></Route>
+            <Route path="/react-treebell-flashcards/grid" element={<Grid />}></Route>
+            <Route path="/react-treebell-flashcards/whats-missing" element={<WhatsMissing />}></Route>
+            <Route path="/react-treebell-flashcards/concentration" element={<Concentration />}></Route>
           </Routes>
         </ItemProvider>
       </div>
